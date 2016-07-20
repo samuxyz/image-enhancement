@@ -1,0 +1,63 @@
+<div class="jumbotron">
+  <div class="container text-center">
+    <h1>Enhance Your Images</h1>
+    <p>Take a look at Filestack’s new image transformations. Upscale and enhance beautiful landscapes or remove red eyes from your portraits.</p>
+    <p><a class="btn btn-filestack btn-lg btn-filestack-start" href="/#/add" role="button">Upload Picture</a></p>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div ng-repeat="image in imageList">
+      <div class="col-md-8 col-md-offset-2 image-list">
+        <div class="media">
+          <!--<div class="media-left">
+            <a href="#">
+              <img class="media-object thumbnail-cover" ng-src="{{image.url}}" alt="{{image.caption}}">
+            </a>
+          </div>-->
+
+          <div class="media-body">
+            <h4 class="media-heading"><a href="#" target="_blank">{{image.caption}}</a></h4>
+            <h5 class="media-heading"><i>Posted by</i> {{image.author}} on {{image.createdAt | date:'MMM dd'}}</h5>
+            <!--<div class="text-center"><a href="#">
+              <img class="thumbnail-cover" ng-src="{{image.url}}" alt="{{image.caption}}">
+            </a>
+            <a href="#">
+              <img class="thumbnail-cover" ng-src="{{image.urlEnhanced}}" alt="{{image.caption}}">
+            </a>
+            </div>-->
+          
+            <div class="row">
+              <div class="col-sm-6 col-md-6 text-center">
+                <div class="thumbnail">
+                  <img src="{{image.url}}" alt="image-original">
+                  <div class="caption">
+                    <h3>Original Picture</h3>
+                    <p><a href="{{image.url}}" class="btn btn-fiestack-preview" role="button" target="_blank"><i class='glyphicon glyphicon-search'></i> Click for Full Size</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-6 text-center">
+                <div class="thumbnail">
+                  <img src="{{image.urlEnhanced}}" alt="image-enhanced">
+                  <div class="caption">
+                    <h3>Enhanced Picture</h3>
+                    <p><a href="{{image.urlEnhanced}}" class="btn btn-fiestack-preview" role="button" target="_blank"><i class='glyphicon glyphicon-search'></i> Click for Full Size</a></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+             <div class="btn-group btn-group-xs pull-right" role="group" aria-label="media-stats">
+              <button class="btn btn-filestack" ng-click="deleteImage(image._id)"><i class="glyphicon glyphicon-trash"></i> Delete</button>
+              <button class="btn btn-filestack" ng-click="saveImage(image.urlEnhanced)"><i class="glyphicon glyphicon-download-alt"></i> Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <footer>
+    <p>© 2016 Samuele Zaza, <a href="https://www.filestack.com/">Filestack</a> Tech Evangelist.</p>
+  </footer>
+</div>
